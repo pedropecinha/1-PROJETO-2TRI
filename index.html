@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrinho 2026 | Agro Forte, Futuro Sustentável</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-seedling"></i> Agro<span>Sustentável</span>
+            </div>
+            
+            <button class="menu-toggle" id="mobile-menu" aria-label="Abrir Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#sobre">Sobre o Tema</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Concurso Agrinho 2026</span>
+            <h1>Agro forte, futuro sustentável:</h1>
+            <p>Descubra a harmonia perfeita entre a alta produtividade do campo e a preservação do nosso meio ambiente.</p>
+            <a href="#produtos" class="btn">Ver Catálogo Sustentável</a>
+        </div>
+    </section>
+
+    <section class="products-section" id="produtos">
+        <div class="section-title">
+            <h2>Nossos Produtos Eco-Eficientes</h2>
+            <p>Inovação tecnológica que respeita a natureza e potencializa sua colheita.</p>
+        </div>
+
+        <div class="grid-products">
+            
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad451?auto=format&fit=crop&w=500&q=80');">
+                    <span class="tag-sustentavel">100% Orgânico</span>
+                </div>
+                <div class="product-info">
+                    <h3>Biofertilizante Ativo</h3>
+                    <p>Nutrição profunda para o solo utilizando compostagem orgânica acelerada. Livre de químicos nocivos.</p>
+                    <div class="product-footer">
+                        <span class="price">R$ 89,90</span>
+                        <button class="btn-cart" onclick="adicionarAoCarrinho('Biofertilizante Ativo')">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1563514223741-21b453e0f6a6?auto=format&fit=crop&w=500&q=80');">
+                    <span class="tag-sustentavel">Economia de Água</span>
+                </div>
+                <div class="product-info">
+                    <h3>Kit Irrigação Inteligente</h3>
+                    <p>Sistema automatizado de gotejamento que reduz o consumo de água em até 40% direcionando direto à raiz.</p>
+                    <div class="product-footer">
+                        <span class="price">R$ 349,00</span>
+                        <button class="btn-cart" onclick="adicionarAoCarrinho('Kit Irrigação Inteligente')">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=500&q=80');">
+                    <span class="tag-sustentavel">Biodegradável</span>
+                </div>
+                <div class="product-info">
+                    <h3>Defensivo Natural Neem</h3>
+                    <p>Protetor contra pragas feito à base de extratos botânicos. Não agride polinizadores como as abelhas.</p>
+                    <div class="product-footer">
+                        <span class="price">R$ 45,00</span>
+                        <button class="btn-cart" onclick="adicionarAoCarrinho('Defensivo Natural Neem')">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?auto=format&fit=crop&w=500&q=80');">
+                    <span class="tag-sustentavel">Energia Limpa</span>
+                </div>
+                <div class="product-info">
+                    <h3>Painel Solar Agro-Light</h3>
+                    <p>Mini sistema fotovoltaico planejado para alimentar cercas elétricas e bombas d'água no campo.</p>
+                    <div class="product-footer">
+                        <span class="price">R$ 799,00</span>
+                        <button class="btn-cart" onclick="adicionarAoCarrinho('Painel Solar Agro-Light')">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content" id="sobre">
+            <div class="footer-logo">
+                <i class="fa-solid fa-seedling"></i> Agrinho<span>2026</span>
+            </div>
+            <p class="slogan">"Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente"</p>
+            <p class="copyright">&copy; 2026 Concurso Agrinho. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
