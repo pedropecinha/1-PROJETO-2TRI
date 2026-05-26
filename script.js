@@ -1,83 +1,104 @@
-// VARIÁVEIS DO ESTADO DA APLICAÇÃO (CARRINHO)
-let totalItensNoCarrinho = 0;
-let valorTotalCarrinho = 0;
+// Variáveis Globais de Estado do Carrinho
+let itensNoCarrinho = 0;
+let valorTotal = 0;
 
-// CONTROLE DO MENU RESPONSIVO MOBILE
+// Aguarda a página carregar completamente
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Menu Mobile
     const menuToggle = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
-
-    if (menuToggle && navMenu) {
+    if (menuToggle) {
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            icon.className = navMenu.classList.contains('active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        });
+    }
+
+    // 2. Filtros da Vitrine de Produtos
+    const botoesFiltro = document.querySelectorAll('.filter-btn');
+    const cardsProdutos = document.querySelectorAll('.product-card');
+
+    botoesFiltro.forEach(botao => {
+        botao.addEventListener('click', () => {
+            // Remove ativo de todos e adiciona no clicado
+            botoesFiltro.forEach(b => b.classList.remove('active'));
+            botao.classList.add('active');
+
+            const categoriaSelecionada = botao.getAttribute('data-filter');
+
+            cardsProdutos.forEach(card => {
+                const categoriaCard = card.getAttribute('data-category');
+                if (categoriaSelecionada === 'todos' || categoriaCard === categoriaSelecionada) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // 3. Sistema de Modal (Visualizar Detalhes)
+    const modal = document.getElementById('productModal');
+    const botoesVisualizar = document.querySelectorAll('.view-btn');
+    const botaoFecharModal = document.getElementById('close-modal-btn');
+
+    botoesVisualizar.forEach(botao => {
+        botao.addEventListener('click', () => {
+            document.getElementById('modalTitle').innerText = botao.getAttribute('data-title');
+            document.getElementById('modalDescription').innerText = botao.getAttribute('data-desc');
+            document.getElementById('modalPrice').innerText = botao.getAttribute('data-price');
+            modal.style.display = 'flex';
+        });
+    });
+
+    if (botaoFecharModal) {
+        botaoFecharModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    }
+
+    // Fechar modal ao clicar fora dele
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // 4. Clique no Ícone do Carrinho (Resumo de Compras)
+    const botaoCarrinho = document.getElementById('cart-btn');
+    if (botaoCarrinho) {
+        botaoCarrinho.addEventListener('click', () => {
+            if (itensNoCarrinho === 0) {
+                alert("🛒 Seu carrinho virtual do Agrinho está vazio. Adicione produtos clicando no botão + !");
+            } else {
+                alert(`🛒 Seu Carrinho Agrinho 2026\n---------------------------------\nQuantidade: ${itensNoCarrinho} item(ns)\nTotal: R$ ${valorTotal.toFixed(2).replace('.', ',')}\n\nObrigado por apoiar o agro sustentável!`);
+            }
+        });
+    }
+
+    // 5. Envio de Formulário Newsletter
+    const formNews = document.getElementById('form-newsletter');
+    if (formNews) {
+        formNews.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = formNews.querySelector('input').value;
+            alert(`🌱 Sucesso! O e-mail (${email}) foi cadastrado para receber o material do Agrinho 2026.`);
+            formNews.reset();
         });
     }
 });
 
-// SISTEMA DE FILTRAGEM DINÂMICA DE PRODUTOS
-function filtrarProdutos(categoria, botaoAlvo) {
-    // Altera classe ativa dos botões
-    const botoes = document.querySelectorAll('.filter-btn');
-    botoes.forEach(btn => btn.classList.remove('active'));
-    botaoAlvo.classList.add('active');
+// Função chamada pelo botão de compra (+) no HTML
+function adicionarAoCarrinho(nomeProduto, precoProduto) {
+    itensNoCarrinho += 1;
+    valorTotal += precoProduto;
 
-    // Executa a filtragem visual dos cards
-    const cards = document.querySelectorAll('.product-card');
-    cards.forEach(card => {
-        if (categoria === 'todos' || card.getAttribute('data-category') === categoria) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
-
-// ADICIONAR PRODUTOS E CALCULAR VALOR TOTAL (SIMULADO)
-function adicionarAoCarrinho(nome, preco) {
-    totalItensNoCarrinho += 1;
-    valorTotalCarrinho += preco;
-    
-    // Atualiza contador numérico na interface
-    document.getElementById('cart-counter').innerText = totalItensNoCarrinho;
-
-    alert(`✅ "${nome}" adicionado com sucesso!\n\nSeu carrinho virtual do Agrinho agora possui ${totalItensNoCarrinho} item(ns).\nSubtotal: R$ ${valorTotalCarrinho.toFixed(2).replace('.', ',')}`);
-}
-
-// INFORMAÇÕES DO STATUS DO CARRINHO
-function abrirResumoCarrinho() {
-    if (totalItensNoCarrinho === 0) {
-        alert("Seu carrinho ecológico está vazio no momento. Adicione produtos na nossa vitrine!");
-    } else {
-        alert(`🛒 Resumo do seu Carrinho Agrinho 2026:\n-----------------------------------------\nQuantidade total: ${totalItensNoCarrinho} item(ns)\nValor Total Acumulado: R$ ${valorTotalCarrinho.toFixed(2).replace('.', ',')}\n\nPronto para fechar negócio sustentável!`);
+    // Atualiza o número vermelho em cima do carrinho
+    const contador = document.getElementById('cart-counter');
+    if (contador) {
+        contador.innerText = itensNoCarrinho;
     }
-}
 
-// MANIPULAÇÃO DO POP-UP / MODAL DE DETALHES
-function abrirModal(titulo, descricao, preco) {
-    document.getElementById('modalTitle').innerText = titulo;
-    document.getElementById('modalDescription').innerText = descricao;
-    document.getElementById('modalPrice').innerText = preco;
-    document.getElementById('productModal').style.display = 'flex';
-}
-
-function fecharModal() {
-    document.getElementById('productModal').style.display = 'none';
-}
-
-// FECHAR MODAL CLICANDO FORA DA CAIXA BRANCA
-window.onclick = function(event) {
-    const modal = document.getElementById('productModal');
-    if (event.target === modal) {
-        modal.style.display = 'none';
-    }
-}
-
-// ENVIO FICTÍCIO DE FORMULÁRIO DE CAPTAÇÃO
-function enviarFormulario(event) {
-    event.preventDefault();
-    const emailDigitado = event.target.querySelector('input').value;
-    alert(`🌱 Excelente! O e-mail "${emailDigitado}" foi cadastrado no banco de dados do Concurso Agrinho 2026. Em breve enviaremos nosso catálogo completo.`);
-    event.target.reset();
+    // Feedback visual rápido
+    alert(`⚡ Item adicionado!\n"${nomeProduto}" foi para o seu carrinho.\nSubtotal atual: R$ ${valorTotal.toFixed(2).replace('.', ',')}`);
 }
