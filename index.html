@@ -38,7 +38,7 @@
                 </ul>
             </nav>
 
-            <div class="cart-icon-container" onclick="abrirResumoCarrinho()">
+            <div class="cart-icon-container" id="cart-btn">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span id="cart-counter">0</span>
             </div>
@@ -63,7 +63,7 @@
                 <div class="sobre-text">
                     <span class="section-tag">Nossa Filosofia</span>
                     <h2>Como alinhar produção e preservação?</h2>
-                    <p>O grande desafio do século XXI não é apenas produzir mais, mas produzir **melhor**. Acreditamos que a tecnologia aplicada ao campo é a ponte definitiva para a sustentabilidade ecológica.</p>
+                    <p>O grande desafio atual não é apenas produzir mais, mas produzir **melhor**. Acreditamos que a tecnologia aplicada ao campo é a ponte definitiva para a sustentabilidade ecológica.</p>
                     
                     <div class="pilares-list">
                         <div class="pilar-item">
@@ -83,7 +83,7 @@
                     </div>
                 </div>
                 <div class="sobre-image">
-                    <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb18865?auto=format&fit=crop&w=600&q=80" alt="Tecnologia no Campo">
+                    <img src="https://picsum.photos/id/142/600/400" alt="Plantação Sustentável">
                 </div>
             </div>
         </div>
@@ -94,27 +94,27 @@
             <div class="section-title">
                 <span class="section-tag">Vitrine Comercial</span>
                 <h2>Soluções para o Produtor Moderno</h2>
-                <p>Equipamentos e bioinsumos homologados pelas diretrizes de sustentabilidade de 2026.</p>
+                <p>Equipamentos e bioinsumos homologados pelas diretrizes de sustentabilidade.</p>
             </div>
 
             <div class="filter-container">
-                <button class="filter-btn active" onclick="filtrarProdutos('todos', this)">Todos</button>
-                <button class="filter-btn" onclick="filtrarProdutos('insumos', this)">Bioinsumos</button>
-                <button class="filter-btn" onclick="filtrarProdutos('tecnologia', this)">Tecnologia & Equipamentos</button>
+                <button class="filter-btn active" data-filter="todos">Todos</button>
+                <button class="filter-btn" data-filter="insumos">Bioinsumos</button>
+                <button class="filter-btn" data-filter="tecnologia">Tecnologia</button>
             </div>
 
             <div class="grid-products">
                 <div class="product-card" data-category="insumos">
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad451?auto=format&fit=crop&w=500&q=80');">
+                    <div class="product-image" style="background-image: url('https://picsum.photos/id/152/400/300');">
                         <span class="tag-sustentavel"><i class="fa-solid fa-biohazard"></i> Orgânico</span>
                     </div>
                     <div class="product-info">
                         <h3>Biofertilizante Regenerativo</h3>
-                        <p>Recupera a microbiota do solo cansado através de compostagem microbiana viva de alta eficiência.</p>
+                        <p>Recupera a microbiota do solo através de compostagem microbiana viva de alta eficiência.</p>
                         <div class="product-footer">
                             <span class="price">R$ 89,90</span>
                             <div class="actions">
-                                <button class="btn-action view" onclick="abrirModal('Biofertilizante Regenerativo', 'Este composto orgânico introduz bilhões de microrganismos benéficos ao solo, reduzindo a dependência de fertilizantes sintéticos azotados em até 60%. Indicado para culturas de grãos e hortifrúti.', 'R$ 89,90')"><i class="fa-solid fa-eye"></i></button>
+                                <button class="btn-action view-btn" data-title="Biofertilizante Regenerativo" data-desc="Este composto orgânico introduz bilhões de microrganismos benéficos ao solo, reduzindo a dependência de fertilizantes sintéticos. Indicado para culturas de grãos e hortifrúti." data-price="R$ 89,90"><i class="fa-solid fa-eye"></i></button>
                                 <button class="btn-action buy" onclick="adicionarAoCarrinho('Biofertilizante Regenerativo', 89.90)"><i class="fa-solid fa-plus"></i></button>
                             </div>
                         </div>
@@ -122,16 +122,16 @@
                 </div>
 
                 <div class="product-card" data-category="tecnologia">
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1563514223741-21b453e0f6a6?auto=format&fit=crop&w=500&q=80');">
+                    <div class="product-image" style="background-image: url('https://picsum.photos/id/324/400/300');">
                         <span class="tag-sustentavel"><i class="fa-solid fa-faucet-drip"></i> Hídrico</span>
                     </div>
                     <div class="product-info">
                         <h3>Kit Irrigação Inteligente v4</h3>
-                        <p>Sensores conectados via IoT que realizam a leitura da umidade da terra e evitam regas excessivas.</p>
+                        <p>Sensores conectados que realizam a leitura da umidade da terra e evitam regas excessivas.</p>
                         <div class="product-footer">
                             <span class="price">R$ 349,00</span>
                             <div class="actions">
-                                <button class="btn-action view" onclick="abrirModal('Kit Irrigação Inteligente v4', 'Um sistema automatizado alimentado por energia solar que monitora a evapotranspiração das plantas e libera a quantidade milimétrica exata de água necessária.', 'R$ 349,00')"><i class="fa-solid fa-eye"></i></button>
+                                <button class="btn-action view-btn" data-title="Kit Irrigação Inteligente v4" data-desc="Um sistema automatizado que monitora a umidade do solo e libera a quantidade exata de água necessária para a planta, economizando até 40% de recursos hídricos." data-price="R$ 349,00"><i class="fa-solid fa-eye"></i></button>
                                 <button class="btn-action buy" onclick="adicionarAoCarrinho('Kit Irrigação Inteligente v4', 349.00)"><i class="fa-solid fa-plus"></i></button>
                             </div>
                         </div>
@@ -139,7 +139,7 @@
                 </div>
 
                 <div class="product-card" data-category="insumos">
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=500&q=80');">
+                    <div class="product-image" style="background-image: url('https://picsum.photos/id/1067/400/300');">
                         <span class="tag-sustentavel"><i class="fa-solid fa-shield-halved"></i> Ecológico</span>
                     </div>
                     <div class="product-info">
@@ -148,7 +148,7 @@
                         <div class="product-footer">
                             <span class="price">R$ 45,00</span>
                             <div class="actions">
-                                <button class="btn-action view" onclick="abrirModal('Defensivo Botânico Neem', 'Defensivo natural biodegradável de largo espectro. Atua por repelência e interrupção do ciclo biológico das pragas sem afetar polinizadores como abelhas.', 'R$ 45,00')"><i class="fa-solid fa-eye"></i></button>
+                                <button class="btn-action view-btn" data-title="Defensivo Botânico Neem" data-desc="Defensivo natural biodegradável de largo espectro. Atua por repelência sem afetar polinizadores essenciais como as abelhas." data-price="R$ 45,00"><i class="fa-solid fa-eye"></i></button>
                                 <button class="btn-action buy" onclick="adicionarAoCarrinho('Defensivo Botânico Neem', 45.00)"><i class="fa-solid fa-plus"></i></button>
                             </div>
                         </div>
@@ -156,16 +156,16 @@
                 </div>
 
                 <div class="product-card" data-category="tecnologia">
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?auto=format&fit=crop&w=500&q=80');">
+                    <div class="product-image" style="background-image: url('https://picsum.photos/id/504/400/300');">
                         <span class="tag-sustentavel"><i class="fa-solid fa-solar-panel"></i> Solar</span>
                     </div>
                     <div class="product-info">
                         <h3>Painel Agro-Light Rural</h3>
-                        <p>Módulo solar compacto reforçado para operação isolada e eletrificação de maquinários leves.</p>
+                        <p>Módulo solar compacto reforçado para operação isolada e eletrificação de cercas ou bombas.</p>
                         <div class="product-footer">
                             <span class="price">R$ 799,00</span>
                             <div class="actions">
-                                <button class="btn-action view" onclick="abrirModal('Painel Agro-Light Rural', 'Kit fotovoltaico com proteção IP67 contra poeira e intempéries climáticas. Ideal para prover autonomia energética a sensores e bombas de captação isoladas.', 'R$ 799,00')"><i class="fa-solid fa-eye"></i></button>
+                                <button class="btn-action view-btn" data-title="Painel Agro-Light Rural" data-desc="Kit fotovoltaico com proteção total contra poeira e chuva. Ideal para dar autonomia energética para bombas d'água e sensores em locais isolados da fazenda." data-price="R$ 799,00"><i class="fa-solid fa-eye"></i></button>
                                 <button class="btn-action buy" onclick="adicionarAoCarrinho('Painel Agro-Light Rural', 799.00)"><i class="fa-solid fa-plus"></i></button>
                             </div>
                         </div>
@@ -180,15 +180,15 @@
             <div class="metrics-grid">
                 <div class="metric-item">
                     <h3>-40%</h3>
-                    <p>Consumo Médio de Água</p>
+                    <p>Consumo de Água</p>
                 </div>
                 <div class="metric-item">
                     <h3>+25%</h3>
-                    <p>Produtividade de Solo por Hectare</p>
+                    <p>Produtividade do Solo</p>
                 </div>
                 <div class="metric-item">
-                    <h3>Zero</h3>
-                    <p>Resíduos Químicos Poluentes</p>
+                    <h3>Eco</h3>
+                    <p>Resíduo Químico Zero</p>
                 </div>
             </div>
         </div>
@@ -196,11 +196,11 @@
 
     <section class="contact-section" id="contato">
         <div class="container card-contact">
-            <h3>Quer alinhar sua propriedade com as diretrizes de 2026?</h3>
-            <p>Inscreva seu e-mail e receba gratuitamente nosso catálogo físico técnico para o Agrinho.</p>
-            <form id="form-newsletter" onsubmit="enviarFormulario(event)">
+            <h3>Quer alinhar sua propriedade com as diretrizes de sustentabilidade?</h3>
+            <p>Inscreva seu e-mail para receber informativos técnicos do projeto Agrinho.</p>
+            <form id="form-newsletter">
                 <div class="input-group">
-                    <input type="email" placeholder="Digite seu melhor e-mail comercial" required>
+                    <input type="email" placeholder="Digite seu melhor e-mail" required>
                     <button type="submit" class="btn btn-accent">Cadastrar</button>
                 </div>
             </form>
@@ -215,24 +215,18 @@
                 </div>
                 <p class="slogan">"Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente"</p>
             </div>
-            <div class="footer-links">
-                <h4>Navegação</h4>
-                <a href="#inicio">Início</a>
-                <a href="#sobre">O Manifesto</a>
-                <a href="#produtos">Produtos</a>
-            </div>
         </div>
-        <p class="copyright">&copy; 2026 Concurso Agrinho. Desenvolvido para fins pedagógicos e competitivos.</p>
+        <p class="copyright">&copy; 2026 Concurso Agrinho. Todos os direitos reservados.</p>
     </footer>
 
     <div class="modal" id="productModal">
         <div class="modal-content">
-            <button class="close-modal" onclick="fecharModal()">&times;</button>
+            <button class="close-modal" id="close-modal-btn">&times;</button>
             <h3 id="modalTitle">Nome do Produto</h3>
-            <p id="modalDescription">Descrição estendida do produto sustentável.</p>
+            <p id="modalDescription">Descrição do produto.</p>
             <div class="modal-footer">
                 <span class="price" id="modalPrice">R$ 0,00</span>
-                <span class="badge-modal">Selo de Conformidade Ecológica</span>
+                <span class="badge-modal">Selo Ecológico Agrinho</span>
             </div>
         </div>
     </div>
