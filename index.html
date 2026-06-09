@@ -52,28 +52,36 @@
             <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce" alt="Maçã">
             <h3>Maçã</h3>
             <p>R$ 8,99/kg</p>
-            <button>Adicionar ao Carrinho</button>
+            <button onclick="adicionarCarrinho('Maçã', 8.99)">
+    Adicionar ao Carrinho
+</button>
         </div>
 
         <div class="produto">
             <img src="https://images.unsplash.com/photo-1518977676601-b53f82aba655" alt="Milho">
             <h3>Milho</h3>
             <p>R$ 4,99/kg</p>
-            <button>Adicionar ao Carrinho</button>
+           <button onclick="adicionarCarrinho('Maçã', 8.99)">
+    Adicionar ao Carrinho
+</button>
         </div>
 
         <div class="produto">
             <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443" alt="Tomate">
             <h3>Tomate</h3>
             <p>R$ 6,49/kg</p>
-            <button>Adicionar ao Carrinho</button>
+            <button onclick="adicionarCarrinho('Maçã', 8.99)">
+    Adicionar ao Carrinho
+</button>
         </div>
 
         <div class="produto">
             <img src="https://images.unsplash.com/photo-1603048719539-9ecb4d3c8d80" alt="Café">
             <h3>Café Especial</h3>
             <p>R$ 24,90</p>
-            <button>Adicionar ao Carrinho</button>
+            <button onclick="adicionarCarrinho('Maçã', 8.99)">
+    Adicionar ao Carrinho
+</button>
         </div>
 
     </div>
@@ -119,6 +127,69 @@
 <footer>
     <p>© 2026 AgroConnect - Projeto Agrinho</p>
 </footer>
+<!-- CARRINHO -->
+<div class="carrinho">
+    <h2>🛒 Carrinho</h2>
+    <ul id="lista-carrinho"></ul>
 
+    <p><strong>Total: R$ <span id="total">0.00</span></strong></p>
+
+    <button onclick="finalizarCompra()">Finalizar Compra</button>
+</div>
+
+<script>
+let carrinho = [];
+let total = 0;
+
+function adicionarCarrinho(nome, preco){
+    carrinho.push({
+        nome: nome,
+        preco: preco
+    });
+
+    atualizarCarrinho();
+}
+
+function atualizarCarrinho(){
+    const lista = document.getElementById("lista-carrinho");
+    const totalElemento = document.getElementById("total");
+
+    lista.innerHTML = "";
+    total = 0;
+
+    carrinho.forEach((item, index) => {
+        total += item.preco;
+
+        lista.innerHTML += `
+            <li>
+                ${item.nome} - R$ ${item.preco.toFixed(2)}
+                <button onclick="removerItem(${index})">❌</button>
+            </li>
+        `;
+    });
+
+    totalElemento.textContent = total.toFixed(2);
+}
+
+function removerItem(index){
+    carrinho.splice(index, 1);
+    atualizarCarrinho();
+}
+
+function finalizarCompra(){
+    if(carrinho.length === 0){
+        alert("Seu carrinho está vazio!");
+        return;
+    }
+
+    alert(
+        "Compra realizada com sucesso!\nTotal: R$ " +
+        total.toFixed(2)
+    );
+
+    carrinho = [];
+    atualizarCarrinho();
+}
+</script>
 </body>
 </html>
