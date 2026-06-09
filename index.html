@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroConnect</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🌱 AgroConnect
+    </div>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="carrinho-topo">
+        🛒 <span id="contador">0</span>
+    </div>
+
+</header>
+
+<section class="hero" id="inicio">
+
+    <div>
+        <h1>Conectando o Campo à Cidade</h1>
+
+        <p>
+            Produtos agrícolas de qualidade,
+            direto do produtor para sua casa.
+        </p>
+
+        <a href="#produtos">
+            <button>Ver Produtos</button>
+        </a>
+    </div>
+
+</section>
+
+<section class="beneficios">
+
+    <div class="card">
+        🚚
+        <h3>Entrega Rápida</h3>
+        <p>Receba seus pedidos com segurança.</p>
+    </div>
+
+    <div class="card">
+        🌿
+        <h3>Sustentabilidade</h3>
+        <p>Apoiamos a agricultura familiar.</p>
+    </div>
+
+    <div class="card">
+        💰
+        <h3>Preço Justo</h3>
+        <p>Sem intermediários.</p>
+    </div>
+
+</section>
+
+<section id="produtos">
+
+    <h2>Produtos em Destaque</h2>
+
+    <div class="produtos">
+
+        <div class="produto">
+            <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce" alt="">
+            <h3>Maçã</h3>
+            <p>R$ 8,99</p>
+            <button onclick="adicionarCarrinho('Maçã',8.99)">Adicionar</button>
+        </div>
+
+        <div class="produto">
+            <img src="https://images.unsplash.com/photo-1551754655-cd27e38d2076" alt="">
+            <h3>Milho</h3>
+            <p>R$ 4,99</p>
+            <button onclick="adicionarCarrinho('Milho',4.99)">Adicionar</button>
+        </div>
+
+        <div class="produto">
+            <img src="https://images.unsplash.com/photo-1546094096-0df4bcaaa337" alt="">
+            <h3>Tomate</h3>
+            <p>R$ 6,49</p>
+            <button onclick="adicionarCarrinho('Tomate',6.49)">Adicionar</button>
+        </div>
+
+        <div class="produto">
+            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e" alt="">
+            <h3>Café Especial</h3>
+            <p>R$ 24,90</p>
+            <button onclick="adicionarCarrinho('Café',24.90)">Adicionar</button>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="carrinho">
+
+    <h2>🛒 Meu Carrinho</h2>
+
+    <ul id="lista-carrinho"></ul>
+
+    <div class="total">
+        Total: R$ <span id="total">0.00</span>
+    </div>
+
+    <div class="botoes">
+
+        <button class="btn-finalizar"
+            onclick="finalizarCompra()">
+            Finalizar Compra
+        </button>
+
+        <button class="btn-limpar"
+            onclick="limparCarrinho()">
+            Esvaziar Carrinho
+        </button>
+
+    </div>
+
+</section>
+
+<section id="sobre">
+
+    <h2>Sobre o Projeto</h2>
+
+    <p>
+        O AgroConnect conecta produtores rurais e consumidores,
+        valorizando o agronegócio brasileiro e incentivando o
+        desenvolvimento sustentável.
+    </p>
+
+</section>
+
+<section id="contato">
+
+    <h2>Contato</h2>
+
+    <form>
+
+        <input type="text" placeholder="Seu nome">
+
+        <input type="email" placeholder="Seu e-mail">
+
+        <textarea placeholder="Sua mensagem"></textarea>
+
+        <button type="submit">
+            Enviar
+        </button>
+
+    </form>
+
+</section>
+
+<footer>
+    © 2026 AgroConnect - Projeto Agrinho
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
