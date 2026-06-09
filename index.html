@@ -3,91 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SneakerHead Pro | Ultimate Shop</title>
+    <title>AgroMarket</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="toast" class="toast">Item adicionado ao carrinho!</div>
-
     <header>
-        <div class="logo">Sneaker<span>Head</span></div>
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Buscar pelo modelo...">
-        </div>
-        <button id="cart-btn">🛒 <span id="cart-count">0</span></button>
+        <h1>🌱 AgroMarket</h1>
+        <p>Conectando o Campo à Cidade</p>
     </header>
 
-    <div class="container">
-        
-        <aside class="filters">
-            <h3>Filtrar por Marcas</h3>
-            <div class="filter-options">
-                <button class="filter-btn active" data-brand="all">Todos</button>
-                <button class="filter-btn" data-brand="Nike">Nike</button>
-                <button class="filter-btn" data-brand="Adidas">Adidas</button>
-                <button class="filter-btn" data-brand="Jordan">Jordan</button>
-                <button class="filter-btn" data-brand="Puma">Puma</button>
+    <main>
+        <section class="produtos">
+            <div class="produto">
+                <img src="https://via.placeholder.com/200" alt="Tomate">
+                <h2>Tomate</h2>
+                <p>R$ 8,00/kg</p>
+                <button onclick="comprar('Tomate')">Comprar</button>
             </div>
-            
-            <div class="price-filter">
-                <h3>Preço Máximo</h3>
-                <input type="range" id="price-range" min="400" max="2000" step="50" value="2000">
-                <p>Até: <span id="price-value">R$ 2000</span></p>
-            </div>
-        </aside>
 
-        <main class="products-section">
-            <h2>Lançamentos</h2>
-            <div class="grid-products" id="products-grid"></div>
-        </main>
-    </div>
-
-    <div id="cart-sidebar" class="sidebar">
-        <div class="sidebar-header">
-            <h3>Seu Carrinho</h3>
-            <button id="close-cart">&times;</button>
-        </div>
-        <div id="cart-items"></div>
-        <div class="sidebar-footer">
-            <div class="coupon-section">
-                <input type="text" id="coupon-input" placeholder="Cupom (SNEAKER10)">
-                <button id="apply-coupon">Aplicar</button>
+            <div class="produto">
+                <img src="https://via.placeholder.com/200" alt="Milho">
+                <h2>Milho</h2>
+                <p>R$ 5,00/kg</p>
+                <button onclick="comprar('Milho')">Comprar</button>
             </div>
-            <p>Subtotal: <span id="cart-subtotal">R$ 0,00</span></p>
-            <p class="discount-text">Desconto: <span id="cart-discount">R$ 0,00</span></p>
-            <p class="total-text">Total: <span id="cart-total">R$ 0,00</span></p>
-            <button id="checkout-btn">Finalizar Compra</button>
-        </div>
-    </div>
 
-    <div id="product-modal" class="modal">
-        <div class="modal-content">
-            <button id="close-modal" class="close-modal">&times;</button>
-            <div class="modal-body">
-                <img id="modal-img" src="" alt="">
-                <div class="modal-info">
-                    <h2 id="modal-title"></h2>
-                    <p id="modal-brand" class="brand-tag"></p>
-                    <p id="modal-desc">Tênis de alta performance com amortecimento responsivo, design ergonômico e acabamento premium em couro e mesh.</p>
-                    <p id="modal-price" class="modal-price"></p>
-                    
-                    <div class="size-selector">
-                        <p>Selecione o Tamanho:</p>
-                        <div class="sizes">
-                            <span class="size-box">38</span>
-                            <span class="size-box active">39</span>
-                            <span class="size-box">40</span>
-                            <span class="size-box">41</span>
-                            <span class="size-box">42</span>
-                        </div>
-                    </div>
-                    
-                    <button id="modal-add-btn" class="add-to-cart">Adicionar ao Carrinho</button>
-                </div>
+            <div class="produto">
+                <img src="https://via.placeholder.com/200" alt="Soja">
+                <h2>Soja</h2>
+                <p>R$ 4,50/kg</p>
+                <button onclick="comprar('Soja')">Comprar</button>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 AgroMarket - Projeto Agrinho</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
